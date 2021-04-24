@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 	<html lang="en">
-		<title>Tool Lending</title>
+		<title>Northridge Park Tool Lending</title>
 		<meta charset='utf-8'>
 		<script type="text/javascript" src="js/ICanHaz.js"></script>
 		<script type="text/javascript" src='js/jquery.js'></script>
@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<header class="container">
-			<h1>Tool Lending</h1>
+			<h1>Northridge Park Tool Lending</h1>
 			<ul class="nav">
 				<li><strong>LENDING IS LOVELY</strong></li>
 				<li>AN OPEN SOURCE, EASY TO DUPLICATE PROJECT</li>
@@ -59,12 +59,22 @@
 				{{^checkedout}}<a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}"><span class="tool-box-borrow btn">BORROW</span></a>{{/checkedout}}
 				<ul>
 					<li><small>WHO / WHERE : </small></li>
-					<li><a href="mailto:{{owneremail}}">{{owner}}</a></li>
+					<li>
+						<a href="mailto:{{owneremail}}">{{owner}}</a>
+						{{#checkedout}}
+						<a href="{{ownerprofile}}">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+							  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+							  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+						</a>
+						{{/checkedout}}
+					</li>
 					<li>{{street}}, {{city}}, {{state}}</li>
 					<li><a href="https://maps.google.com/maps?q={{street}},{{city}},{{state}}" target="_blank"><small>MAP</small></a></li>
 					{{#tooldetails}}
 					<li><small>NOTES : </small>{{tooldetails}}</li>
 					{{/tooldetails}}
+					<li><img src="{{toolimage}}"/></li>
 				</ul>
 			</div>
 		</div>
